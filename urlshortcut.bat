@@ -1,7 +1,9 @@
 @echo off
 
+::Change the text color
 color B
 
+::Initialize the len variable for hold the array size
 set len=5
 
 ::initializing names array
