@@ -1,0 +1,7 @@
+# Batch_Scripts
+Hands on batch scripting
+
+**File description**
+
+1) urlshortcut.bat --> *Open the favourite links on the firefox browser using a text command*
+2) wifipw.bat --> *Connected WIFI password finder in the pc*
