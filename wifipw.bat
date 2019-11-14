@@ -1,5 +1,7 @@
 @echo off
 
+title WIFI password finder
+
 ::Create the main function
 :main
 
