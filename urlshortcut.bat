@@ -23,34 +23,44 @@ set url[4]=https://www.youtube.com/
 ::Create the variable i
 set /A i=0
 
-::get the user input
-set /p name="Enter the name: "
-
-:loop
-
-::exit if i and len is equal
-if %i% equ %len% goto :eof
-
-::looping through the names[]
+::Print the link list function
+:print_list
+if %i% equ %len% goto :main
 for /f "usebackq delims== tokens=2" %%j in (`set names[%i%]`) do (
 
-::call success founction if the input and the names[x] if equal
-	if %%j==%name% goto :success
+	call echo %i% : %%names[%i%]%%
 	
 )
+set /A i=i+1
+goto print_list
 
-::Increment i by +1
-set /A i=%i%+1
-goto loop
+
+::main function
+:main
+::set i to 0
+set /A i=0
+::Print an empty line
+echo[
+::get the user input
+set /p index="Enter the name: "
+
+
+:validate_the_index
+if %index% lss 0 goto invalid_input
+if %index% geq %len% goto invalid_input
+
 
 :success
-
 ::start the firefox session if the name and the names[] equals
 setlocal enableDelayedExpansion
-start firefox.exe !url[%i%]!
+start firefox.exe !url[%index%]!
 endlocal
 exit
 
 
-::start firefox.exe https://github.com/AtheeshRathnaweera
+::go to main function if invalid
+:invalid_input
+echo invalid input
+goto main
+
 
