@@ -42,7 +42,7 @@ set /A i=0
 ::Print an empty line
 echo[
 ::get the user input
-set /p index="Enter the name: "
+set /p index="Enter the index number : "
 
 
 :validate_the_index
